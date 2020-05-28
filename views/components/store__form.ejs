@@ -1,0 +1,61 @@
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="storeModal" tabindex="-1" role="dialog" aria-labelledby="storeLabel" aria-hidden="true" >
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="storeLabel">Оформление заказа</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="storeForm" method="POST" action="/checkout/">
+                    <div class="form-group">
+                        <label for="formName">Укажите ваше ФИО</label>
+                        <input name="name" type="text" class="form-control" placeholder="Иванов И.И." id="formName">
+                    </div>
+                    <div class="form-group">
+                        <label for="formEmail">Введите вашу почту</label>
+                        <input name="email" type="text" class="form-control" id="formEmail" aria-describedby="emailHelp" placeholder="Введите почту" >
+                        <small id="emailHelp" class="form-text text-muted">Мы никогда не будем делиться вашей электронной почтой с кем-либо еще.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="formPlace">Выбирете ресторан</label>
+                        <select name="place" id="formPlace" class="form-control">
+                            <option selected>г. Москва - м.Спортивная ул. Усачева, д.35А </option>
+                            <option>г. Москва - м.Курская ул. Казакова, 8 строение 4А </option>
+                            <option>г. Санкт-Петербург, Лиговский пр-кт, д.67А </option>
+                            <option>г. Екатеринбург - ул.Гурзуфская 20 </option>
+                            <option>г. Новосибирск - Красный пр, 12к32 </option>
+                            <option>г. Ижевск переулок Широкий, дом.52 </option>
+                            <option>г. Сочи, ул. Горького, д.45 </option>
+                            <option>г. Нижний Новгород - шоссе Московское, 56 </option>
+                            <option>г. Казань - пр. Ибрагимова, 87 </option>
+                            <option>г. Самара - ул. Губанова, 23 </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="formDate">Укажите дату посещения</label>
+                        <input name="date" type="text" id="formDate" class="datepicker form-control" data-provide="datepicker" placeholder="">
+                    </div>
+                    <div class="for-group" style="display: none;" hidden>
+                        <input type="text" id="formHall" name="hall">
+                        <input type="text" id="formDishes" name="dish">
+                    </div>
+                    <div class="form-check">
+                        <input name="notification" type="checkbox" class="form-check-input" id="notification">
+                        <label class="form-check-label" for="notification">Уведомлять о новых акция и скидках.</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-toggle="modal"
+                        data-target="#storeModal"
+                        data-dismiss="modal"> Закрыть </button>
+                <button type="button" class="btn btn-primary" id="formContinue">К оплате</button>
+            </div>
+        </div>
+    </div>
+</div>

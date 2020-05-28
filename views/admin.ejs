@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+    <title><%= title %></title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+    <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <style type="text/css">body{height:100vh}.login{height:100vh;display:flex;justify-content:center;align-items:center}.login .login__form{width:80%;max-width:400px}.login .login__button_wrapper{text-align:center}.login .login__button_wrapper button{min-width:140px;width:35%}
+    </style>
+    <% if (!author.error && author.admin) { %>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.0/codemirror.min.css"
+              integrity="sha256-vZ3SaLOjnKO/gGvcUWegySoDU6ff33CS5i9ot8J9Czk=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.0/theme/darcula.min.css"
+              integrity="sha256-V6KTwy/Apla0Z6eDoKIk7O6II9t5xb7OYcKTJm35Rjw=" crossorigin="anonymous" />
+        <link rel='stylesheet' href='/stylesheets/admin.css'>
+    <% } %>
+    </head>
+<body>
+    <% if (!author.error && author.admin) { %>
+        <%- include("components/panel") %>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+                integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+                crossorigin="anonymous" defer>
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+                integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+                crossorigin="anonymous" defer>
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.0/codemirror.min.js"
+                integrity="sha256-C1kVf8tUtnM4eBSZM0mE7kcDrTYuVGxACdyYvhMEeRo="
+                crossorigin="anonymous" defer>
+        </script>
+        <script src="/javascripts/admin.js" defer></script>
+    <% } else { %>
+        <div class="container login">
+            <form class="login__form" action="/admin/" method="POST">
+                <div class="form-group">
+                    <label for="loginUsername">Login</label>
+                    <input type="text" class="form-control" id="loginUsername" placeholder="Login" name="username">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" class="form-control" id="loginPassword" placeholder="Password" name="password">
+                </div>
+                <% if (author.error) { %>
+                    <div class="alert alert-danger" role="alert">
+                        Password or username entered is incorrect!
+                    </div>
+                <% } %>
+                <% if (author.admin + "" === "false") { %>
+                    <div class="alert alert-warning" role="alert">
+                        This account does not have administrator rights!
+                    </div>
+                <% } %>
+                <div class="login__button_wrapper">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    <% } %>
+</body>
+</html>

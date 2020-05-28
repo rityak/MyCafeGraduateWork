@@ -1,0 +1,36 @@
+<%
+    let fix;
+    switch(dish.type) {
+        case "drink":
+            fix = "bar__image_drink";
+            break;
+        case "pizza":
+            fix = "bar__image_pizza";
+            break;
+        default:
+            fix = "";
+            break;
+
+    }
+    const ID = dish.id - 1;
+%>
+<div class="dish__item wow fadeInRight" data-dish-id="<%= ID %>" data-wow-delay="0s" data-wow-duration=".8s">
+    <h5 class="dish__title"><%= dish.title %></h5>
+    <img class="dish__image <%= fix %>" src="<%= dish.image %>" alt="images">
+    <p class="dish__subtitle"><%= dish.price %></p>
+    <div class="dish__bar">
+        <div class="btn-toolbar bar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+                <button type="button" onclick="count(this)"
+                        class="btn btn-primary bar__button"
+                        data-counter-type="decrement"
+                >-</button>
+                <input type="text" class="bar__input" value="0" data-id="<%= ID %>">
+                <button type="button" onclick="count(this)"
+                        class="btn btn-primary bar__button"
+                        data-counter-type="increment"
+                >+</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+
+<section class="hall" id="hall">
+    <div class="fluid-container">
+        <div class="row">
+            <% halls.forEach((hall, i, array) => { %>
+                <%- include('hall__item', {hall: hall, id: i }); %>
+            <% }); %>
+        </div>
+    </div>
+</section>
+

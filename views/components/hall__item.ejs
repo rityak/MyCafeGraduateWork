@@ -1,0 +1,49 @@
+<% const ID = hall.id - 1 %>
+<div class="col-12 hall__item wow fadeInLeft" data-wow-delay="0s" data-wow-duration=".8s" data-hall-id="<%= ID %>"> <!-- Копировать его для создания нескольких блоков -->
+    <div class="container" data-hall-id="<%= hall.id %>">
+        <div class="row">
+            <div class="col-12 col-xl-6 col-lg-6 hall__carousel">
+                <div id="<%= 'hall_' + id %>" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <% hall.images.split(';').forEach((image, i, array) => { %>
+                            <% if (image) {%>
+                                <div
+                                    <% if (i === 0) {%>
+                                        class="carousel-item active"
+                                    <% } else {%>
+                                        class="carousel-item"
+                                    <% } %>
+                                >
+                                    <img class="d-block w-100" src="<%= image %>" alt='<%= i %>'>
+                                </div>
+                            <% } %>
+                        <% }); %>
+                    </div>
+                    <% if (hall.images.split(";").length > 1) { %>
+                        <a class="carousel-control-prev" href="#<%= 'hall_' + id %>" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#<%= 'hall_' + id %>" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    <% } %>
+                </div>
+            </div>
+            <div class="col-12 col-xl-6 col-lg-6 hall__info info">
+                <h5 class="info__title"><%= hall.title %></h5>
+                <%- hall.body %>
+                <p class="info__price title">
+                    Стоимость зала:
+                    <span class="info__old-price"><%= hall.old__price %></span>
+                    <span class="info__new-price"><%= hall.new__price %></span>
+                    руб./2 часа
+                </p>
+                <div class="info__button">
+                    <button class="btn btn-primary set__hall" data-id="<%= ID %>">Заказать</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

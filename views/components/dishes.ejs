@@ -1,0 +1,21 @@
+<section class="dishes" id="dishes">
+    <h3 class="dishes__title title">
+        Меню
+    </h3>
+    <div class="dishes__container container">
+        <%
+            const types = ["euro", "jup", "sal", "drink", "bar", "pizza"];
+            const translate = ["Европейская кухня", "Японская кухня", "Салаты", "Напитки", "Блюда на мангале", "Пиццы"];
+        %>
+        <% for (const [index, item] of types.entries()) { %>
+            <h4 class="dishes__title wow fadeInLeft" data-wow-delay="0s" data-wow-duration=".8s"><%= translate[index] %></h4>
+            <div class="dish">
+                <% dishes.forEach((dish, i, array) => { %>
+                    <% if (dish.type === item) { %>
+                            <%- include('dish__item', { dish: dish}); %>
+                    <% } %>
+                <% }); %>
+            </div>
+        <% } %>
+    </div>
+</section>

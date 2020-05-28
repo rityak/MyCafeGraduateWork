@@ -1,0 +1,57 @@
+section.hall {
+	.hall__item {
+		background:rgb(30, 30, 30);
+		margin: 25px 0;
+		padding: 15px 0;
+		.hall__carousel {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+	.info {
+		color: #f2f2f2;
+		.info__title {
+			padding-top: 15px;
+			color: #ffbd57;
+			text-shadow: 2px 2px 5px #000;
+			font-size: 30px;
+			font-weight: 400;
+		}
+		.info__text {
+			font-size: 16px;
+			color: #fefefe;
+		}
+		.info__price {
+			font-size: 22px;
+			.info__old-price,
+			.info__new-price {
+				font-size: 25px;
+			}
+			.info__old-price {
+				text-decoration: line-through;
+			}
+		}
+		.line {
+			 border: 2px solid #ffbd57;
+			 border-radius: 15px;
+			 margin: 0 0 10px 0;
+		 }
+	}
+}
+.info__line {
+	border: 2px solid #ffbd57;
+	border-radius: 15px;
+	margin: 0 0 10px 0;
+}
+@media (max-width: 992px) {
+	.hall__info {
+		padding: 0 20px;
+		.info__button {
+			text-align: center;
+		}
+	}
+	.info__title {
+		text-align: center;
+	}
+}

@@ -1,0 +1,38 @@
+.title {
+	font-family: Rajdhani,Roboto,sans-serif;
+	font-weight: 500 !important;
+}
+.header {
+	background-color: rgba(30, 30, 30, .7) !important;
+	.header__title {
+		position: relative;
+	}
+	.header__image-logo {
+		height: 40px;
+		object-fit: cover;
+		object-position: center;
+		margin-right: 15px;
+	}
+}
+
+.store {
+	.store__item {
+		display: inline-block;
+		line-height: 40px;
+		height: 20px;
+		position: relative;
+		top: -2px;
+		object-position: center;
+		#storeFill {
+			transition: all .2s;
+		}
+	}
+}
+
+#header {
+	transition: all .6s ease-in-out;
+	left: 0;
+	&.active {
+		left: 100%;
+	}
+}
